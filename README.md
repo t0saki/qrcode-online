@@ -120,6 +120,12 @@ only where it's missing (Safari/Firefox) — so Chromium ships **zero** WASM.
   <img src="docs/mobile.png" width="280" alt="Mobile, dark mode" />
 </p>
 
+## Origin
+
+This project was built from a single prompt:
+
+> 写一个小而精美的、App Store 付费 App 级别优雅 UI/UX 的在线二维码识别/生成器，部署在 Cloudflare Workers，无状态，支持粘贴图片、给定图像链接、本地上传、摄像头识别，支持带参数 url 外链生成二维码图片，开源于 GitHub。如果你有更合理的需求修正、增减，欢迎随时提出。
+
 ## Contributing
 
 Issues and PRs welcome. Keep it small and tasteful — this project values a minimal,
