@@ -9,4 +9,3 @@ dist
 coverage
 .vite
 *.tsbuildinfo
-_*.mjs
