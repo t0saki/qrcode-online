@@ -1,6 +1,8 @@
 import { h, mount } from "./dom";
 import { genStore } from "./generate/gen-store";
 import { createGenerateView } from "./generate/generate-view";
+import { renderHistoryPanel } from "./history/history-panel";
+import { openSheet } from "./ui/sheet";
 import { getLocale, onLocaleChange, t, toggleLocale } from "./i18n/i18n";
 import { createScanView } from "./scan/scan-view";
 import { cycleTheme, getTheme, type Theme } from "./theme";
@@ -95,6 +97,17 @@ function buildShell(): { el: HTMLElement; teardown: () => void } {
       "div",
       { class: "topbar-actions" },
       h(
+        "button",
+        {
+          class: "icon-btn",
+          type: "button",
+          title: t("history.open"),
+          "aria-label": t("history.open"),
+          onClick: () => openSheet({ title: t("history.open"), render: renderHistoryPanel }),
+        },
+        icon("clock", { size: 18 }),
+      ),
+      h(
         "a",
         {
           class: "icon-btn",
@@ -157,5 +170,7 @@ function buildShell(): { el: HTMLElement; teardown: () => void } {
 }
 
 function readMode(): Mode {
+  const fromUrl = new URLSearchParams(location.search).get("mode");
+  if (fromUrl === "scan" || fromUrl === "generate") return fromUrl;
   return localStorage.getItem(MODE_KEY) === "scan" ? "scan" : "generate";
 }

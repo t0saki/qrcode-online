@@ -88,6 +88,69 @@
 .icon-btn:active {
   transform: scale(0.92);
 }
+.icon-btn-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+}
+
+/* ---------- Sheet (modal / bottom-sheet) ---------- */
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--overlay);
+  opacity: 0;
+  transition: opacity var(--d-2);
+}
+.sheet-overlay.is-open {
+  opacity: 1;
+}
+.sheet {
+  width: 100%;
+  max-width: 520px;
+  max-height: 82dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  box-shadow: var(--shadow-3);
+  transform: translateY(100%);
+  transition: transform var(--d-3) var(--ease-emph);
+}
+.sheet-overlay.is-open .sheet {
+  transform: none;
+}
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4) var(--s-4) var(--s-3) var(--s-5);
+  border-bottom: 1px solid var(--border);
+}
+.sheet-title {
+  font-size: var(--t-16);
+  font-weight: 650;
+}
+@media (min-width: 640px) {
+  .sheet-overlay {
+    align-items: center;
+    padding: var(--s-5);
+  }
+  .sheet {
+    border-radius: var(--r-xl);
+    max-height: 72dvh;
+    transform: translateY(12px) scale(0.98);
+  }
+  .sheet-overlay.is-open .sheet {
+    transform: none;
+  }
+}
 
 /* ---------- Segmented control ---------- */
 .segmented {

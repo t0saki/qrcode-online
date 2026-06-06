@@ -2,6 +2,7 @@ import "./scan.css";
 
 import { parseResult } from "../../shared/parse/parse-result";
 import { clear, h, mount } from "../dom";
+import { addHistory } from "../history/history-store";
 import { t } from "../i18n/i18n";
 import { createResultCard } from "../result/result-card";
 import { segmented } from "../ui/segmented";
@@ -66,7 +67,9 @@ export function createScanView(): ViewHandle {
 
   function showResult(raw: string): void {
     clearStatus();
-    mount(resultMount, createResultCard(parseResult(raw)));
+    const parsed = parseResult(raw);
+    addHistory({ type: "scan", value: raw, kind: parsed.kind });
+    mount(resultMount, createResultCard(parsed));
     navigator.vibrate?.(12);
     resultMount.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }

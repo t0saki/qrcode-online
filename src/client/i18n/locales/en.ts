@@ -86,8 +86,12 @@ export const en = {
   "result.makeQr": "Make a QR code",
 
   "history.title": "Recent",
+  "history.open": "History",
   "history.empty": "Nothing yet — your recent codes will show up here.",
   "history.clear": "Clear all",
+  "history.generated": "Generated",
+  "history.scanned": "Scanned",
+  "time.now": "just now",
 
   "footer.privacy": "Runs in your browser. Nothing is stored on a server.",
   "footer.source": "Source",

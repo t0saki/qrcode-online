@@ -88,8 +88,12 @@ export const zh: Record<keyof Dict, string> = {
   "result.makeQr": "生成二维码",
 
   "history.title": "最近",
+  "history.open": "历史记录",
   "history.empty": "暂无记录——最近的二维码会显示在这里。",
   "history.clear": "全部清除",
+  "history.generated": "已生成",
+  "history.scanned": "已识别",
+  "time.now": "刚刚",
 
   "footer.privacy": "全程在你的浏览器中运行，服务端不保存任何数据。",
   "footer.source": "源码",

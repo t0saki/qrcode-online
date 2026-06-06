@@ -2,6 +2,7 @@ import "./generate.css";
 
 import { BOUNDS, ECC_LEVELS, type EccLevel } from "../../shared/qr/types";
 import { h } from "../dom";
+import { addHistory } from "../history/history-store";
 import { t } from "../i18n/i18n";
 import { colorField } from "../ui/color-field";
 import { icon } from "../ui/icon";
@@ -18,6 +19,7 @@ import { createPreview } from "./live-preview";
 export function createGenerateView(): ViewHandle {
   const state = () => genStore.get();
   const preview = createPreview();
+  const record = () => addHistory({ type: "generate", value: state().data });
 
   // ---- Content ----
   const textarea = h("textarea", {
@@ -147,6 +149,7 @@ export function createGenerateView(): ViewHandle {
         try {
           download(await pngBlob(state()), `${filenameStem(state())}.png`);
           toast(`${t("action.download")} PNG`, { icon: "download" });
+          record();
         } catch {
           toast(t("gen.capacity"), { icon: "x" });
         }
@@ -164,6 +167,7 @@ export function createGenerateView(): ViewHandle {
         try {
           download(svgBlob(state()), `${filenameStem(state())}.svg`);
           toast(`${t("action.download")} SVG`, { icon: "download" });
+          record();
         } catch {
           toast(t("gen.capacity"), { icon: "x" });
         }
@@ -181,6 +185,7 @@ export function createGenerateView(): ViewHandle {
         try {
           const ok = await copyImage(await pngBlob(state()));
           toast(ok ? t("action.copied") : t("action.copyImage"), { icon: ok ? "check" : "copy" });
+          if (ok) record();
         } catch {
           toast(t("gen.capacity"), { icon: "x" });
         }
