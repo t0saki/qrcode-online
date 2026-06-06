@@ -1,4 +1,5 @@
 import type { Env } from "./env";
+import { route } from "./router";
 
 /**
  * The Worker only runs for `/api/*` routes (see `run_worker_first` in
@@ -6,13 +7,7 @@ import type { Env } from "./env";
  * with SPA fallback to `index.html`.
  */
 export default {
-  async fetch(request: Request, _env: Env, _ctx: ExecutionContext): Promise<Response> {
-    const url = new URL(request.url);
-
-    if (url.pathname === "/api/ping") {
-      return Response.json({ ok: true, service: "qrcode-online" });
-    }
-
-    return Response.json({ error: "not_found", message: "Unknown API route." }, { status: 404 });
+  fetch(request, env, ctx) {
+    return route(request, env, ctx);
   },
 } satisfies ExportedHandler<Env>;
