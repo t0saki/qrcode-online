@@ -88,12 +88,15 @@ Requires Node ≥ 20 and [pnpm](https://pnpm.io). Camera scanning needs a secure
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/t0saki/qrcode-online)
 
-…or from your own clone (one-time `wrangler login` for your Cloudflare account):
+…or from your own clone (one-time login for your Cloudflare account):
 
 ```bash
-wrangler login
-pnpm deploy     # builds, then `wrangler deploy`
+pnpm exec wrangler login   # use the pinned wrangler (v4) — `run_worker_first` needs it
+pnpm deploy                # builds, then `wrangler deploy`
 ```
+
+To deploy to a custom domain, set `routes` in `wrangler.jsonc`
+(e.g. `[{ "pattern": "qr.example.com", "custom_domain": true }]`) for a zone on your account.
 
 It fits comfortably on the **free** Workers plan — the Worker bundle is ~19 KB gzipped and
 all QR decoding runs client-side.
