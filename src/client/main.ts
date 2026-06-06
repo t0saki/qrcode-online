@@ -1,13 +1,14 @@
-// Placeholder bootstrap — replaced by the real app shell in a later step.
-const app = document.querySelector<HTMLDivElement>("#app");
-if (app) {
-  app.textContent = "QR Code Online — scaffolding…";
-  fetch("/api/ping")
-    .then((r) => r.json())
-    .then((d) => {
-      app.textContent = `QR Code Online — API says: ${JSON.stringify(d)}`;
-    })
-    .catch(() => {
-      app.textContent = "QR Code Online — (API not reachable in this context)";
-    });
-}
+import "./styles/tokens.css";
+import "./styles/base.css";
+import "./styles/components.css";
+import "./styles/app.css";
+
+import { mountApp } from "./app";
+import { initI18n } from "./i18n/i18n";
+import { initTheme } from "./theme";
+
+initTheme();
+initI18n();
+
+const root = document.getElementById("app");
+if (root) mountApp(root);
