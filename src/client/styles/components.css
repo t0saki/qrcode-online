@@ -166,10 +166,14 @@
   display: flex;
   width: 100%;
 }
+.segmented-block .segmented-option {
+  flex: 1 1 0;
+  padding: 0 var(--s-2);
+}
 .segmented-option {
   position: relative;
   z-index: 1;
-  flex: 1 1 0;
+  flex: 0 0 auto;
   min-width: 0;
   display: inline-flex;
   align-items: center;
