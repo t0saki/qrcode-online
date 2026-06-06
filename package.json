@@ -1,0 +1,33 @@
+{
+  "name": "qrcode-online",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "A small, elegant, stateless QR code generator & scanner on Cloudflare Workers.",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.1.3",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "pnpm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.worker.json",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "@nuintun/qrcode": "5.0.3",
+    "barcode-detector": "3.2.0",
+    "zxing-wasm": "3.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.40.0",
+    "@cloudflare/workers-types": "4.20260606.1",
+    "typescript": "6.0.3",
+    "vite": "8.0.16",
+    "vite-plugin-pwa": "1.3.0",
+    "wrangler": "4.98.0"
+  }
+}

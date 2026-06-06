@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="QR Code Online">
+  <rect width="64" height="64" rx="14" fill="#3B6CF6" />
+  <g fill="#fff">
+    <!-- finder: top-left -->
+    <path d="M8 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z M12 12v8h8v-8z" fill-rule="evenodd" />
+    <rect x="14" y="14" width="4" height="4" rx="1" />
+    <!-- finder: top-right -->
+    <path d="M40 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z M44 12v8h8v-8z" fill-rule="evenodd" />
+    <rect x="46" y="14" width="4" height="4" rx="1" />
+    <!-- finder: bottom-left -->
+    <path d="M8 44a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z M12 44v8h8v-8z" fill-rule="evenodd" />
+    <rect x="14" y="46" width="4" height="4" rx="1" />
+    <!-- data modules -->
+    <rect x="40" y="40" width="5" height="5" rx="1.2" />
+    <rect x="51" y="40" width="5" height="5" rx="1.2" />
+    <rect x="40" y="51" width="5" height="5" rx="1.2" />
+    <rect x="51" y="51" width="5" height="5" rx="1.2" />
+    <rect x="45.5" y="45.5" width="5" height="5" rx="1.2" fill-opacity=".85" />
+  </g>
+</svg>
