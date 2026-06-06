@@ -61,6 +61,7 @@ export function segmented(opts: {
         class: "segmented-option",
         role: "radio",
         "aria-checked": "false",
+        "aria-label": option.label,
         onClick: () => select(option.value, true),
         onKeydown: (e: KeyboardEvent) => {
           const i = indexOf(value);

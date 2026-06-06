@@ -6,7 +6,10 @@ import type { ScanReport, ScanSource } from "../source";
 
 export function createCameraSource(report: ScanReport): ScanSource {
   const camera = createCamera({
-    onResult: (hit) => report.onResult(hit.value),
+    onResult: (hit) => {
+      viewfinder.dataset.state = "hit"; // freeze with a success flash
+      report.onResult(hit.value);
+    },
     onError: (kind) => showStatus(kind),
   });
 

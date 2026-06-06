@@ -87,8 +87,29 @@
   transition: opacity var(--d-3);
   pointer-events: none;
 }
-.viewfinder[data-state="active"] .viewfinder-overlay {
+.viewfinder[data-state="active"] .viewfinder-overlay,
+.viewfinder[data-state="hit"] .viewfinder-overlay {
   opacity: 1;
+}
+.viewfinder[data-state="hit"] .vf-corner {
+  border-color: var(--success);
+}
+.viewfinder[data-state="hit"] .vf-scanline {
+  display: none;
+}
+.viewfinder[data-state="hit"] .viewfinder-cutout {
+  animation: vf-hit var(--d-3) var(--ease-spring);
+}
+@keyframes vf-hit {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .viewfinder-cutout {
   position: relative;
@@ -328,4 +349,14 @@
 .result-actions .btn span {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* On narrow screens the 4 source tabs become icon-only (labels via aria-label). */
+@media (max-width: 480px) {
+  .scan-source-switch .segmented-option .segmented-label {
+    display: none;
+  }
+  .scan-source-switch .segmented-option {
+    padding: 0;
+  }
 }

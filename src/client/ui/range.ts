@@ -16,6 +16,7 @@ export function rangeField(opts: {
   const input = h("input", {
     class: "range",
     type: "range",
+    "aria-label": opts.label,
     min: String(opts.min),
     max: String(opts.max),
     step: String(opts.step),
