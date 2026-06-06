@@ -1,4 +1,5 @@
 import { h, mount } from "./dom";
+import { genStore } from "./generate/gen-store";
 import { createGenerateView } from "./generate/generate-view";
 import { getLocale, onLocaleChange, t, toggleLocale } from "./i18n/i18n";
 import { createScanView } from "./scan/scan-view";
@@ -135,8 +136,19 @@ function buildShell(): { el: HTMLElement; teardown: () => void } {
   applyMode();
   queueMicrotask(() => views[mode].activate?.());
 
+  // "Make a QR code" from a scan result → switch to Generate with that data.
+  const onGenerate = (e: Event) => {
+    const data = (e as CustomEvent<string>).detail;
+    if (typeof data === "string") {
+      genStore.set({ data });
+      setMode("generate");
+    }
+  };
+  document.addEventListener("qro:generate", onGenerate);
+
   const el = h("div", { class: "app-root" }, header, stage, footer);
   const teardown = () => {
+    document.removeEventListener("qro:generate", onGenerate);
     views[mode].deactivate?.();
     views.generate.destroy?.();
     views.scan.destroy?.();

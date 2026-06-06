@@ -223,6 +223,9 @@ export function createGenerateView(): ViewHandle {
 
   function sync(s: GenState): void {
     preview.render(s);
+    if (document.activeElement !== textarea && textarea.value !== s.data) {
+      textarea.value = s.data;
+    }
     embedInput.value = embedUrl(s);
     logoNote.hidden = !s.logo;
     logoRemoveBtn.hidden = !s.logo;
