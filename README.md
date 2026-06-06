@@ -11,6 +11,8 @@ stateless [Cloudflare Worker](https://workers.cloudflare.com/). No tracking, no 
 no server-side storage. Plus a deterministic, cacheable **image API** you can drop straight
 into an `<img>` tag.
 
+### [▶ Live demo — qrcode-online.767911.xyz](https://qrcode-online.767911.xyz)
+
 </div>
 
 <p align="center">
@@ -41,7 +43,7 @@ into an `<img>` tag.
 Build a QR anywhere with a plain URL — perfect for emails, docs, dashboards, and READMEs:
 
 ```html
-<img src="https://your-worker.example.com/api/qr.png?data=https://example.com&size=512" />
+<img src="https://qrcode-online.767911.xyz/api/qr.png?data=https://example.com&size=512" />
 ```
 
 Two endpoints: **`/api/qr.svg`** and **`/api/qr.png`**.
