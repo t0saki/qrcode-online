@@ -10,7 +10,7 @@
   top: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--s-4);
   padding: var(--s-3) var(--s-5);
@@ -59,6 +59,7 @@
   margin: 0 auto;
   padding: var(--s-6) var(--s-5) var(--s-7);
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
 }
 .pane {
   grid-area: 1 / 1;
@@ -133,6 +134,10 @@
     padding: var(--s-5) var(--s-4) var(--s-6);
   }
   .wordmark {
+    display: none;
+  }
+  /* GitHub also lives in the footer; hide it from the bar to save space. */
+  .topbar-actions a.icon-btn {
     display: none;
   }
 }

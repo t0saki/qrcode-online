@@ -42,6 +42,9 @@ export const zh: Record<keyof Dict, string> = {
   "gen.embed.copyUrl": "复制链接",
   "gen.embed.copyImg": "复制 <img>",
   "gen.empty": "二维码将显示在这里。",
+  "gen.capacity": "数据太多，单个二维码放不下——请缩短内容或降低纠错级别。",
+  "gen.embed.logoNote": "图片外链走公开 API，不包含中心 Logo。",
+  "gen.download.png.scale": "倍数",
 
   "scan.source.camera": "摄像头",
   "scan.source.upload": "上传",

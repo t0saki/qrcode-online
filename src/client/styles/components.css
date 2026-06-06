@@ -171,6 +171,7 @@
 .input,
 .textarea {
   width: 100%;
+  min-width: 0; /* allow inputs to shrink inside flex/grid (prevents overflow) */
   background: var(--field);
   border: 1px solid var(--field-border);
   border-radius: var(--r-md);

@@ -40,6 +40,9 @@ export const en = {
   "gen.embed.copyUrl": "Copy URL",
   "gen.embed.copyImg": "Copy <img>",
   "gen.empty": "Your QR code will appear here.",
+  "gen.capacity": "Too much data for one QR code — shorten it or lower the error correction.",
+  "gen.embed.logoNote": "The image link uses the public API, which doesn't include the logo.",
+  "gen.download.png.scale": "Scale",
 
   "scan.source.camera": "Camera",
   "scan.source.upload": "Upload",

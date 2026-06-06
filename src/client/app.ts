@@ -137,8 +137,9 @@ function buildShell(): { el: HTMLElement; teardown: () => void } {
 
   const el = h("div", { class: "app-root" }, header, stage, footer);
   const teardown = () => {
-    views.generate.deactivate?.();
-    views.scan.deactivate?.();
+    views[mode].deactivate?.();
+    views.generate.destroy?.();
+    views.scan.destroy?.();
   };
   return { el, teardown };
 }
